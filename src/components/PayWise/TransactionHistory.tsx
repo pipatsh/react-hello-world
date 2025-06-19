@@ -111,12 +111,12 @@ const TransactionHistory: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 flex flex-col p-4 overflow-hidden relative">
+    <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-web-green-50 to-web-green-100 flex flex-col p-4 overflow-hidden relative">
       {/* Animated background elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/6 w-40 h-40 bg-purple-400/10 rounded-full animate-float blur-xl"></div>
-        <div className="absolute top-3/4 right-1/6 w-32 h-32 bg-indigo-400/10 rounded-full animate-float delay-1000 blur-xl"></div>
-        <div className="absolute bottom-1/4 left-1/2 w-48 h-48 bg-blue-400/10 rounded-full animate-float delay-2000 blur-xl"></div>
+        <div className="absolute top-1/4 left-1/6 w-40 h-40 bg-web-green-400/10 rounded-full animate-float blur-xl"></div>
+        <div className="absolute top-3/4 right-1/6 w-32 h-32 bg-web-green-500/10 rounded-full animate-float delay-1000 blur-xl"></div>
+        <div className="absolute bottom-1/4 left-1/2 w-48 h-48 bg-web-green-300/10 rounded-full animate-float delay-2000 blur-xl"></div>
       </div>
 
       {/* Header */}
@@ -125,11 +125,11 @@ const TransactionHistory: React.FC = () => {
           <div className="flex items-center justify-between">
             <Link 
               to="/paywise"
-              className="text-white/60 hover:text-white transition-colors duration-200"
+              className="text-neutral-600 hover:text-neutral-800 transition-colors duration-200"
             >
               ← Back
             </Link>
-            <h1 className="text-xl font-bold text-white">Transaction History</h1>
+            <h1 className="text-xl font-bold text-neutral-900">Transaction History</h1>
             <div className="w-6"></div> {/* Spacer */}
           </div>
         </GlassCard>
@@ -142,21 +142,21 @@ const TransactionHistory: React.FC = () => {
             <div
               key={transaction.id}
               onClick={() => handleTransactionClick(transaction.id)}
-              className="glass-effect rounded-xl p-4 border border-white/20 hover:border-white/40 cursor-pointer hover:scale-[1.02] transition-all duration-200"
+              className="glass-effect rounded-xl p-4 border border-web-green-200 hover:border-web-green-300 cursor-pointer hover:scale-[1.02] transition-all duration-200"
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full flex items-center justify-center">
+                  <div className="w-12 h-12 bg-gradient-to-r from-web-green-500 to-web-green-400 rounded-full flex items-center justify-center">
                     {getTransactionIcon(transaction)}
                   </div>
                   <div>
-                    <h3 className="text-white font-semibold text-sm">
+                    <h3 className="text-neutral-800 font-semibold text-sm">
                       {transaction.type === 'sent' ? 'To ' : 'From '}
                       {transaction.recipientName}
                     </h3>
-                    <p className="text-white/60 text-xs">{transaction.payTag}</p>
+                    <p className="text-neutral-600 text-xs">{transaction.payTag}</p>
                     {transaction.memo && (
-                      <p className="text-white/50 text-xs mt-1">{transaction.memo}</p>
+                      <p className="text-neutral-500 text-xs mt-1">{transaction.memo}</p>
                     )}
                   </div>
                 </div>
@@ -165,17 +165,17 @@ const TransactionHistory: React.FC = () => {
                   <p className={`font-semibold ${getTransactionColor(transaction)}`}>
                     {transaction.type === 'sent' ? '-' : '+'}₿{transaction.amount.toFixed(2)}
                   </p>
-                  <p className="text-white/50 text-xs">{formatDate(transaction.date)}</p>
-                  <p className="text-white/40 text-xs">{formatTime(transaction.date)}</p>
+                  <p className="text-neutral-500 text-xs">{formatDate(transaction.date)}</p>
+                  <p className="text-neutral-400 text-xs">{formatTime(transaction.date)}</p>
                 </div>
               </div>
               
               {/* Status indicator */}
               <div className="flex justify-end mt-2">
                 <span className={`text-xs px-2 py-1 rounded-full ${
-                  transaction.status === 'completed' ? 'bg-green-400/20 text-green-400' :
-                  transaction.status === 'pending' ? 'bg-yellow-400/20 text-yellow-400' :
-                  'bg-red-400/20 text-red-400'
+                  transaction.status === 'completed' ? 'bg-success/20 text-success' :
+                  transaction.status === 'pending' ? 'bg-warning/20 text-warning' :
+                  'bg-error/20 text-error'
                 }`}>
                   {transaction.status.charAt(0).toUpperCase() + transaction.status.slice(1)}
                 </span>
@@ -187,14 +187,14 @@ const TransactionHistory: React.FC = () => {
         {/* Empty state (if no transactions) */}
         {transactions.length === 0 && (
           <GlassCard className="text-center py-12">
-            <div className="w-16 h-16 bg-gradient-to-r from-gray-400 to-gray-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+            <div className="w-16 h-16 bg-gradient-to-r from-neutral-400 to-neutral-600 rounded-full mx-auto mb-4 flex items-center justify-center">
               <span className="text-2xl">📭</span>
             </div>
-            <h3 className="text-white font-semibold mb-2">No Transactions Yet</h3>
-            <p className="text-white/60 text-sm mb-6">Your transaction history will appear here</p>
+            <h3 className="text-neutral-800 font-semibold mb-2">No Transactions Yet</h3>
+            <p className="text-neutral-600 text-sm mb-6">Your transaction history will appear here</p>
             <Link 
               to="/paywise/transfer"
-              className="inline-block liquid-glass rounded-xl py-2 px-4 text-white font-medium hover:scale-105 transition-transform"
+              className="inline-block liquid-glass rounded-xl py-2 px-4 text-neutral-800 font-medium hover:scale-105 transition-transform"
             >
               Send Your First Payment
             </Link>
@@ -206,9 +206,9 @@ const TransactionHistory: React.FC = () => {
       <div className="fixed bottom-6 right-6 z-20">
         <button
           onClick={() => navigate('/paywise/transfer')}
-          className="w-14 h-14 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-200 animate-glow"
+          className="w-14 h-14 bg-gradient-to-r from-web-green-500 to-web-green-400 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-200 animate-glow"
         >
-          <span className="text-xl">+</span>
+          <span className="text-xl text-white">+</span>
         </button>
       </div>
     </div>

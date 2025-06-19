@@ -103,12 +103,12 @@ const TransactionDetails: React.FC = () => {
   const iconData = getTransactionIcon();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex flex-col p-4 overflow-hidden relative">
+    <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-web-green-50 to-web-green-100 flex flex-col p-4 overflow-hidden relative">
       {/* Animated background elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/6 w-40 h-40 bg-indigo-400/10 rounded-full animate-float blur-xl"></div>
-        <div className="absolute top-3/4 right-1/6 w-32 h-32 bg-purple-400/10 rounded-full animate-float delay-1000 blur-xl"></div>
-        <div className="absolute bottom-1/4 left-1/2 w-48 h-48 bg-pink-400/10 rounded-full animate-float delay-2000 blur-xl"></div>
+        <div className="absolute top-1/4 left-1/6 w-40 h-40 bg-web-green-400/10 rounded-full animate-float blur-xl"></div>
+        <div className="absolute top-3/4 right-1/6 w-32 h-32 bg-web-green-500/10 rounded-full animate-float delay-1000 blur-xl"></div>
+        <div className="absolute bottom-1/4 left-1/2 w-48 h-48 bg-web-green-300/10 rounded-full animate-float delay-2000 blur-xl"></div>
       </div>
 
       {/* Header */}
@@ -117,11 +117,11 @@ const TransactionDetails: React.FC = () => {
           <div className="flex items-center justify-between">
             <Link 
               to="/paywise/history"
-              className="text-white/60 hover:text-white transition-colors duration-200"
+              className="text-neutral-600 hover:text-neutral-800 transition-colors duration-200"
             >
               ← Back
             </Link>
-            <h1 className="text-xl font-bold text-white">Transaction Details</h1>
+            <h1 className="text-xl font-bold text-neutral-900">Transaction Details</h1>
             <div className="w-6"></div>
           </div>
         </GlassCard>
@@ -130,12 +130,12 @@ const TransactionDetails: React.FC = () => {
       {/* Success Message */}
       {showSuccessMessage && (
         <div className="relative z-20 max-w-md w-full mx-auto mb-4">
-          <div className="glass-effect rounded-xl p-4 border border-green-400/50 bg-green-400/10">
+          <div className="glass-effect rounded-xl p-4 border border-success/50 bg-success/10">
             <div className="flex items-center gap-3">
               <span className="text-2xl">✅</span>
               <div>
-                <p className="text-green-400 font-semibold">Receipt Saved!</p>
-                <p className="text-white/70 text-sm">E-Slip saved to your device</p>
+                <p className="text-success font-semibold">Receipt Saved!</p>
+                <p className="text-neutral-700 text-sm">E-Slip saved to your device</p>
               </div>
             </div>
           </div>
@@ -155,13 +155,13 @@ const TransactionDetails: React.FC = () => {
               {transaction.status.charAt(0).toUpperCase() + transaction.status.slice(1)}
             </div>
             
-            <h2 className={`text-3xl font-bold mb-2 ${transaction.type === 'sent' ? 'text-red-400' : 'text-green-400'}`}>
+            <h2 className={`text-3xl font-bold mb-2 ${transaction.type === 'sent' ? 'text-error' : 'text-success'}`}>
               {transaction.type === 'sent' ? '-' : '+'}₿{transaction.amount.toFixed(2)}
             </h2>
             
-            <p className="text-white/80">
+            <p className="text-neutral-600">
               {transaction.type === 'sent' ? 'Sent to ' : 'Received from '}
-              <span className="font-semibold">
+              <span className="font-semibold text-neutral-800">
                 {transaction.type === 'sent' ? transaction.recipientName : transaction.senderName}
               </span>
             </p>
@@ -170,42 +170,42 @@ const TransactionDetails: React.FC = () => {
           {/* Transaction Details */}
           <div className="space-y-4">
             <div className="glass-effect rounded-xl p-4">
-              <h3 className="text-white font-semibold mb-3">Transaction Information</h3>
+              <h3 className="text-neutral-800 font-semibold mb-3">Transaction Information</h3>
               
               <div className="space-y-3">
                 <div className="flex justify-between">
-                  <span className="text-white/70">Transaction ID:</span>
-                  <span className="text-white font-mono text-sm">{transaction.id}</span>
+                  <span className="text-neutral-600">Transaction ID:</span>
+                  <span className="text-neutral-800 font-mono text-sm">{transaction.id}</span>
                 </div>
                 
                 <div className="flex justify-between">
-                  <span className="text-white/70">PayTag:</span>
-                  <span className="text-white">{transaction.payTag}</span>
+                  <span className="text-neutral-600">PayTag:</span>
+                  <span className="text-neutral-800">{transaction.payTag}</span>
                 </div>
                 
                 <div className="flex justify-between">
-                  <span className="text-white/70">Date & Time:</span>
-                  <span className="text-white text-sm">{formatDateTime(transaction.date)}</span>
+                  <span className="text-neutral-600">Date & Time:</span>
+                  <span className="text-neutral-800 text-sm">{formatDateTime(transaction.date)}</span>
                 </div>
                 
                 {transaction.memo && (
                   <div className="flex justify-between">
-                    <span className="text-white/70">Memo:</span>
-                    <span className="text-white">{transaction.memo}</span>
+                    <span className="text-neutral-600">Memo:</span>
+                    <span className="text-neutral-800">{transaction.memo}</span>
                   </div>
                 )}
                 
                 <div className="flex justify-between">
-                  <span className="text-white/70">Type:</span>
-                  <span className="text-white capitalize">{transaction.type}</span>
+                  <span className="text-neutral-600">Type:</span>
+                  <span className="text-neutral-800 capitalize">{transaction.type}</span>
                 </div>
               </div>
             </div>
 
             {/* E-Slip Section */}
             <div className="glass-effect rounded-xl p-4">
-              <h3 className="text-white font-semibold mb-3">Digital Receipt (E-Slip)</h3>
-              <p className="text-white/70 text-sm mb-4">
+              <h3 className="text-neutral-800 font-semibold mb-3">Digital Receipt (E-Slip)</h3>
+              <p className="text-neutral-600 text-sm mb-4">
                 Save this transaction as a digital receipt for your records
               </p>
               

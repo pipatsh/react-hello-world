@@ -21,8 +21,8 @@ export const GlassButton: React.FC<GlassButtonProps> = ({
   disabled = false
 }) => {
   const baseClasses = variant === 'liquid' 
-    ? 'liquid-glass rounded-2xl py-3 px-6 text-white font-semibold hover:scale-105 transform transition-all duration-300 hover:animate-glow'
-    : 'glass-effect rounded-2xl py-3 px-6 text-white/90 font-medium hover:scale-105 transform transition-all duration-300 border border-white/30';
+    ? 'liquid-glass rounded-2xl py-3 px-6 text-neutral-800 font-semibold hover:scale-105 transform transition-all duration-300 hover:animate-glow'
+    : 'glass-effect rounded-2xl py-3 px-6 text-neutral-700 font-medium hover:scale-105 transform transition-all duration-300 border border-web-green-200';
 
   const disabledClasses = disabled ? 'opacity-50 cursor-not-allowed hover:scale-100' : '';
 
@@ -78,8 +78,8 @@ export const FeatureHighlight: React.FC<FeatureHighlightProps> = ({
   return (
     <div className="glass-effect rounded-xl p-4">
       <div className="text-3xl mb-2">{icon}</div>
-      <h3 className="text-white font-semibold mb-2">{title}</h3>
-      <p className="text-white/70 text-sm">{description}</p>
+      <h3 className="text-neutral-800 font-semibold mb-2">{title}</h3>
+      <p className="text-neutral-600 text-sm">{description}</p>
     </div>
   );
 };

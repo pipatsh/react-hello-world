@@ -97,41 +97,41 @@ const TransferFlow: React.FC = () => {
 
   const renderStep1 = () => (
     <div>
-      <h2 className="text-2xl font-bold text-white mb-6 text-center">Send Money</h2>
+      <h2 className="text-2xl font-bold text-neutral-900 mb-6 text-center">Send Money</h2>
       
       <div className="space-y-4">
         <div>
-          <label className="block text-white/80 text-sm mb-2">Recipient PayTag</label>
+          <label className="block text-neutral-700 text-sm mb-2">Recipient PayTag</label>
           <input
             type="text"
             placeholder="@username123"
             value={transferData.payTag}
             onChange={(e) => setTransferData(prev => ({ ...prev, payTag: e.target.value }))}
-            className="w-full glass-effect rounded-xl px-4 py-3 text-white placeholder-white/50 border border-white/30 focus:border-white/50 focus:outline-none"
+            className="w-full glass-effect rounded-xl px-4 py-3 text-neutral-800 placeholder-neutral-500 border border-web-green-200 focus:border-web-green-400 focus:outline-none"
           />
-          {errors.payTag && <p className="text-red-400 text-sm mt-1">{errors.payTag}</p>}
+          {errors.payTag && <p className="text-error text-sm mt-1">{errors.payTag}</p>}
         </div>
 
         <div>
-          <label className="block text-white/80 text-sm mb-2">Amount</label>
+          <label className="block text-neutral-700 text-sm mb-2">Amount</label>
           <input
             type="number"
             placeholder="0.00"
             value={transferData.amount}
             onChange={(e) => setTransferData(prev => ({ ...prev, amount: e.target.value }))}
-            className="w-full glass-effect rounded-xl px-4 py-3 text-white placeholder-white/50 border border-white/30 focus:border-white/50 focus:outline-none"
+            className="w-full glass-effect rounded-xl px-4 py-3 text-neutral-800 placeholder-neutral-500 border border-web-green-200 focus:border-web-green-400 focus:outline-none"
           />
-          {errors.amount && <p className="text-red-400 text-sm mt-1">{errors.amount}</p>}
+          {errors.amount && <p className="text-error text-sm mt-1">{errors.amount}</p>}
         </div>
 
         <div>
-          <label className="block text-white/80 text-sm mb-2">Memo (Optional)</label>
+          <label className="block text-neutral-700 text-sm mb-2">Memo (Optional)</label>
           <input
             type="text"
             placeholder="What's this for?"
             value={transferData.memo}
             onChange={(e) => setTransferData(prev => ({ ...prev, memo: e.target.value }))}
-            className="w-full glass-effect rounded-xl px-4 py-3 text-white placeholder-white/50 border border-white/30 focus:border-white/50 focus:outline-none"
+            className="w-full glass-effect rounded-xl px-4 py-3 text-neutral-800 placeholder-neutral-500 border border-web-green-200 focus:border-web-green-400 focus:outline-none"
           />
         </div>
 
@@ -157,26 +157,26 @@ const TransferFlow: React.FC = () => {
 
   const renderStep2 = () => (
     <div>
-      <h2 className="text-2xl font-bold text-white mb-6 text-center">Confirm Transfer</h2>
+      <h2 className="text-2xl font-bold text-neutral-900 mb-6 text-center">Confirm Transfer</h2>
       
       <div className="glass-effect rounded-xl p-6 mb-6">
         <div className="text-center mb-4">
-          <div className="w-16 h-16 bg-gradient-to-r from-green-400 to-blue-400 rounded-full mx-auto mb-3 flex items-center justify-center">
+          <div className="w-16 h-16 bg-gradient-to-r from-web-green-500 to-web-green-400 rounded-full mx-auto mb-3 flex items-center justify-center">
             <span className="text-2xl">👤</span>
           </div>
-          <h3 className="text-xl font-semibold text-white">{transferData.recipientName}</h3>
-          <p className="text-white/60">{transferData.payTag}</p>
+          <h3 className="text-xl font-semibold text-neutral-800">{transferData.recipientName}</h3>
+          <p className="text-neutral-600">{transferData.payTag}</p>
         </div>
         
-        <div className="border-t border-white/20 pt-4 space-y-3">
+        <div className="border-t border-neutral-200 pt-4 space-y-3">
           <div className="flex justify-between">
-            <span className="text-white/80">Amount:</span>
-            <span className="text-white font-semibold">₿{transferData.amount}</span>
+            <span className="text-neutral-600">Amount:</span>
+            <span className="text-neutral-800 font-semibold">₿{transferData.amount}</span>
           </div>
           {transferData.memo && (
             <div className="flex justify-between">
-              <span className="text-white/80">Memo:</span>
-              <span className="text-white">{transferData.memo}</span>
+              <span className="text-neutral-600">Memo:</span>
+              <span className="text-neutral-800">{transferData.memo}</span>
             </div>
           )}
         </div>
@@ -203,25 +203,25 @@ const TransferFlow: React.FC = () => {
 
   const renderStep3 = () => (
     <div>
-      <h2 className="text-2xl font-bold text-white mb-6 text-center">Enter PIN</h2>
+      <h2 className="text-2xl font-bold text-neutral-900 mb-6 text-center">Enter PIN</h2>
       
       <div className="text-center mb-6">
-        <p className="text-white/80 mb-4">Enter your 6-digit PIN to authorize this transaction</p>
+        <p className="text-neutral-600 mb-4">Enter your 6-digit PIN to authorize this transaction</p>
         
         <div className="flex justify-center gap-2 mb-4">
           {[...Array(6)].map((_, i) => (
             <div
               key={i}
               className={`w-12 h-12 rounded-xl glass-effect border ${
-                i < pin.length ? 'border-white/50' : 'border-white/20'
+                i < pin.length ? 'border-web-green-400' : 'border-neutral-300'
               } flex items-center justify-center`}
             >
-              {i < pin.length && <div className="w-3 h-3 bg-white rounded-full"></div>}
+              {i < pin.length && <div className="w-3 h-3 bg-web-green-500 rounded-full"></div>}
             </div>
           ))}
         </div>
 
-        {errors.pin && <p className="text-red-400 text-sm mb-4">{errors.pin}</p>}
+        {errors.pin && <p className="text-error text-sm mb-4">{errors.pin}</p>}
 
         <div className="grid grid-cols-3 gap-3 max-w-xs mx-auto">
           {[1,2,3,4,5,6,7,8,9,'',0,'⌫'].map((num, i) => (
@@ -234,7 +234,7 @@ const TransferFlow: React.FC = () => {
                   setPin(prev => prev + num);
                 }
               }}
-              className={`w-16 h-16 rounded-xl glass-effect border border-white/30 text-white font-semibold hover:scale-105 transition-transform ${
+              className={`w-16 h-16 rounded-xl glass-effect border border-web-green-200 text-neutral-800 font-semibold hover:scale-105 transition-transform ${
                 num === '' ? 'invisible' : ''
               }`}
               disabled={num === '' || (pinAttempts >= 3)}
@@ -266,12 +266,12 @@ const TransferFlow: React.FC = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-900 via-blue-900 to-indigo-900 flex items-center justify-center p-4 overflow-hidden relative">
+    <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-web-green-50 to-web-green-100 flex items-center justify-center p-4 overflow-hidden relative">
       {/* Animated background elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/6 w-40 h-40 bg-green-400/10 rounded-full animate-float blur-xl"></div>
-        <div className="absolute top-3/4 right-1/6 w-32 h-32 bg-blue-400/10 rounded-full animate-float delay-1000 blur-xl"></div>
-        <div className="absolute bottom-1/4 left-1/2 w-48 h-48 bg-indigo-400/10 rounded-full animate-float delay-2000 blur-xl"></div>
+        <div className="absolute top-1/4 left-1/6 w-40 h-40 bg-web-green-400/10 rounded-full animate-float blur-xl"></div>
+        <div className="absolute top-3/4 right-1/6 w-32 h-32 bg-web-green-500/10 rounded-full animate-float delay-1000 blur-xl"></div>
+        <div className="absolute bottom-1/4 left-1/2 w-48 h-48 bg-web-green-300/10 rounded-full animate-float delay-2000 blur-xl"></div>
       </div>
 
       {/* Progress indicator */}
@@ -280,11 +280,11 @@ const TransferFlow: React.FC = () => {
           {[1,2,3].map((stepNum) => (
             <div key={stepNum} className="flex items-center">
               <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold ${
-                stepNum <= step ? 'bg-white text-blue-900' : 'glass-effect text-white/60'
+                stepNum <= step ? 'bg-web-green-500 text-white' : 'glass-effect text-neutral-600'
               }`}>
                 {stepNum}
               </div>
-              {stepNum < 3 && <div className={`w-12 h-0.5 ${stepNum < step ? 'bg-white' : 'bg-white/20'}`}></div>}
+              {stepNum < 3 && <div className={`w-12 h-0.5 ${stepNum < step ? 'bg-web-green-500' : 'bg-neutral-300'}`}></div>}
             </div>
           ))}
         </div>
