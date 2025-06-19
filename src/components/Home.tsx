@@ -41,6 +41,10 @@ const Home: React.FC = () => {
               💳 PayWise App
             </Link>
             
+            <Link to="/store" className="liquid-glass rounded-2xl py-4 px-8 text-neutral-800 font-semibold hover:scale-105 transform transition-all duration-300 hover:animate-glow text-decoration-none">
+              🍎 Apple Store
+            </Link>
+            
             <GlassButton 
               onClick={handleNavigateToHello}
               variant="glass"

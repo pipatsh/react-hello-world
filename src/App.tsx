@@ -6,6 +6,8 @@ import PayWiseApp from './components/PayWise/PayWiseApp';
 import TransferFlow from './components/PayWise/TransferFlow';
 import TransactionHistory from './components/PayWise/TransactionHistory';
 import TransactionDetails from './components/PayWise/TransactionDetails';
+import AppleStore from './components/AppleStore/AppleStore';
+import ProductDetail from './components/AppleStore/ProductDetail';
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           <Route path="/paywise/transfer" element={<TransferFlow />} />
           <Route path="/paywise/history" element={<TransactionHistory />} />
           <Route path="/paywise/transaction/:id" element={<TransactionDetails />} />
+          <Route path="/store" element={<AppleStore />} />
+          <Route path="/store/product/:id" element={<ProductDetail />} />
         </Routes>
       </div>
     </Router>
