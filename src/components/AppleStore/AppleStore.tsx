@@ -133,7 +133,7 @@ const AppleStore: React.FC = () => {
             Discover the latest innovations. Get expert advice. And enjoy free delivery on everything.
           </p>
           <button 
-            onClick={() => setSelectedCategory('iPhone')}
+            onClick={() => navigate('/store/shop/iphone')}
             className="bg-web-green-500 hover:bg-web-green-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-colors"
           >
             Shop iPhone

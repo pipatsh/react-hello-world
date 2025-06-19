@@ -8,6 +8,7 @@ import TransactionHistory from './components/PayWise/TransactionHistory';
 import TransactionDetails from './components/PayWise/TransactionDetails';
 import AppleStore from './components/AppleStore/AppleStore';
 import ProductDetail from './components/AppleStore/ProductDetail';
+import ShopIPhone from './components/AppleStore/ShopIPhone';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/paywise/transaction/:id" element={<TransactionDetails />} />
           <Route path="/store" element={<AppleStore />} />
           <Route path="/store/product/:id" element={<ProductDetail />} />
+          <Route path="/store/shop/iphone" element={<ShopIPhone />} />
         </Routes>
       </div>
     </Router>
