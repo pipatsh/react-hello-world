@@ -1,12 +1,19 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './components/Home';
 import HelloWorld from './components/HelloWorld';
 
-const App: React.FC = () => {
+function App() {
   return (
-    <div className="flex items-center justify-center h-screen">
-      <HelloWorld />
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/hello" element={<HelloWorld />} />
+        </Routes>
+      </div>
+    </Router>
   );
-};
+}
 
 export default App;

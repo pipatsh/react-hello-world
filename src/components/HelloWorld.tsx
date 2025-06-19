@@ -1,6 +1,13 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 const HelloWorld: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleLearnMore = () => {
+    navigate('/');
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 flex items-center justify-center p-4 overflow-hidden relative">
       {/* Animated background bubbles */}
@@ -30,11 +37,14 @@ const HelloWorld: React.FC = () => {
           
           {/* Interactive buttons */}
           <div className="flex flex-col gap-4">
-            <button className="liquid-glass rounded-2xl py-3 px-6 text-white font-semibold hover:scale-105 transform transition-all duration-300 hover:animate-glow">
-              Get Started
-            </button>
+            <Link to="/" className="liquid-glass rounded-2xl py-3 px-6 text-white font-semibold hover:scale-105 transform transition-all duration-300 hover:animate-glow text-center text-decoration-none">
+              🏠 Back to Home
+            </Link>
             
-            <button className="glass-effect rounded-2xl py-3 px-6 text-white/90 font-medium hover:scale-105 transform transition-all duration-300 border border-white/30">
+            <button 
+              onClick={handleLearnMore}
+              className="glass-effect rounded-2xl py-3 px-6 text-white/90 font-medium hover:scale-105 transform transition-all duration-300 border border-white/30"
+            >
               Learn More
             </button>
           </div>
